@@ -65,7 +65,8 @@ class App extends Component {
       sellingTokenId: null,
       sellingTokenPrice: null,
       isForSale: null,
-      owner: null
+      owner: null,
+      buyingTokenId: null
     };
   }
 
@@ -90,6 +91,12 @@ class App extends Component {
     console.log("fetching token Id");
     const tokenId = event.target.value
     this.setState({ tokenId })
+  }
+
+  captureBuyingTokenId = (event) => {
+    console.log("capturing token Id to buy");
+    const buyingTokenId = event.target.value;
+    this.setState({ buyingTokenId });
   }
 
   captureSellingTokenId = (event) => {
@@ -174,6 +181,20 @@ class App extends Component {
     
   }
 
+  buyToken = async (event) => {
+    event.preventDefault();
+    const tokenId = this.state.buyingTokenId;
+    const web3 = window.web3;
+    await this.state.contractNft.methods.getPrice(tokenId).call().then((r) => {
+      console.log(r);
+      const sellingTokenPrice = web3.utils.fromWei(r.toString(), 'ether')
+      this.setState({ sellingTokenPrice });
+    })
+    await this.state.contractNft.methods.buyToken(tokenId).send({from: this.state.account, value: web3.utils.toWei(this.state.sellingTokenPrice), gasPrice: web3.utils.toWei("100", "gwei")}).then((r) => {
+      console.log(r);
+    })
+  }
+
   render() {
     return (
       <div>
@@ -223,6 +244,12 @@ class App extends Component {
                 <form onSubmit = {this.sellToken}>
                   <input type = "number" placeholder = "Token id :" onChange = {this.captureSellingTokenId}/>
                   <input placeholder = "Token selling price :" onChange = {this.captureTokenPrice}/>
+                  <input type = "submit" />
+                </form>
+                <br></br>
+                <h2>Buy Token</h2>
+                <form onSubmit = {this.buyToken}>
+                  <input placeholder = "Token Id" onChange = {this.captureBuyingTokenId}></input>
                   <input type = "submit" />
                 </form>
               </div>

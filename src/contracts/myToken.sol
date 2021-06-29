@@ -33,7 +33,7 @@ contract myToken is ERC721, Ownable {
 
     }
 
-    function sendToken(address _from, address _to, uint _tokenId) internal {
+    function sendToken(address _from, address payable _to, uint _tokenId) internal {
         require(tokenToAddress[_tokenId] == _from);
         safeTransferFrom(_from, _to, _tokenId);
         tokenToAddress[_tokenId] = _to;
@@ -41,11 +41,10 @@ contract myToken is ERC721, Ownable {
         addressToTokens[_to] = addressToTokens[_to].add(1);
     }
 
-    function buyToken(uint _tokenId) public {
+    function buyToken(uint _tokenId) payable public {
         require(forSale[_tokenId] == true, "This Token is not for sale");
-        address _owner = tokenToAddress[_tokenId];
-        address _to = msg.sender;
-        require(_owner != _to, "this account is selling the token");
+        address _owner = (tokenToAddress[_tokenId]);
+        address payable _to = payable(msg.sender);
         sendToken(_owner, _to, _tokenId);
         forSale[_tokenId] = false;
     }
