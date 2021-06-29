@@ -1,6 +1,8 @@
 # Pandora-Bazaar
 Experimental marketplace for Pandora
 
+TODO
+
 User Requirments:
     -Requires the user to have Truffle installed.
     -Requires the user to create a .secret file with private key of the account deploying the Dapp (take a look at truffle.config kovan network for further details...)
@@ -11,3 +13,4 @@ Features of the Dapp:
     -Displaying a token with token id as input.
     -Selling a token with input for the token id and token price.
     -Buying a token with the token id as input.
+
