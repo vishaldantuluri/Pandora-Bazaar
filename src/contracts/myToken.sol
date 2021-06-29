@@ -45,8 +45,11 @@ contract myToken is ERC721, Ownable {
         require(forSale[_tokenId] == true, "This Token is not for sale");
         address _owner = (tokenToAddress[_tokenId]);
         address payable _to = payable(msg.sender);
+        require(_owner != _to);
+        _approve(_to, _tokenId);
         sendToken(_owner, _to, _tokenId);
         forSale[_tokenId] = false;
+        priceOfToken[_tokenId] = 0;
     }
 
     function sellToken(uint _tokenId, uint _price) public {

@@ -31,8 +31,8 @@ class App extends Component {
 
   async loadBlockchainData() {
     const web3 = window.web3;
-    const accounts = await web3.eth.getAccounts();
-    this.setState({account: accounts[0]})
+    const account = await window.ethereum.selectedAddress;
+    this.setState({account})
     const netId = await web3.eth.net.getId();
     const networkData = IpfsHash.networks[netId];
     const networkDataNft = MyToken.networks[netId];
@@ -75,11 +75,15 @@ class App extends Component {
   }
 
 
-  captureFile = (event) => {
+  captureFile = async (event) => {
     event.preventDefault();
 
     console.log('capturing file');
     const file = event.target.files[0];
+
+    const account = await window.ethereum.selectedAddress;
+    this.setState({account})
+
     const reader = new window.FileReader();
     reader.readAsArrayBuffer(file);
     reader.onloadend = () => {
@@ -88,31 +92,52 @@ class App extends Component {
   }
 
   captureTokenId = async (event) => {
+    event.preventDefault();
     console.log("fetching token Id");
     const tokenId = event.target.value
     this.setState({ tokenId })
+
+    const account = await window.ethereum.selectedAddress;
+    this.setState({account});
+
   }
 
-  captureBuyingTokenId = (event) => {
+  captureBuyingTokenId = async (event) => {
+    event.preventDefault();
+
     console.log("capturing token Id to buy");
     const buyingTokenId = event.target.value;
+    const account = await window.ethereum.selectedAddress;
+    this.setState({account})
     this.setState({ buyingTokenId });
   }
 
-  captureSellingTokenId = (event) => {
+  captureSellingTokenId = async (event) => {
+    event.preventDefault();
+
     console.log("fetching token Id to sell");
     const sellingTokenId = event.target.value;
+    const account = await window.ethereum.selectedAddress;
+    this.setState({account})
     this.setState({ sellingTokenId })
   }
 
-  captureTokenPrice = (event) => {
+  captureTokenPrice = async (event) => {
+    event.preventDefault();
+
     console.log("fetching token Price");
     const sellingTokenPrice = event.target.value;
+    const account = await window.ethereum.selectedAddress;
+    this.setState({account})
     this.setState({ sellingTokenPrice })
   }
 
   onSubmit = async (event) => {
     event.preventDefault();
+
+    const account = await window.ethereum.selectedAddress;
+    this.setState({account})
+
     await ipfs.add(this.state.buffer, async (error, result) => {
       if(error){
         console.error(error);
@@ -134,7 +159,7 @@ class App extends Component {
       
       await this.state.contractNft.methods.getIdFromIpfs(imgHash).call().then((r) => {
         const tokenId = r.toString(10);
-        console.log(tokenId);
+        console.log("New token id: ",tokenId);
         this.setState({ tokenId })
       });
     })
@@ -144,9 +169,13 @@ class App extends Component {
   sellToken = async (event) => {
     const web3 = window.web3;
     event.preventDefault();
+
+    const account = await window.ethereum.selectedAddress;
+    this.setState({account})
+
     await this.state.contractNft.methods.sellToken(this.state.sellingTokenId, web3.utils.toWei(this.state.sellingTokenPrice, 'ether')).send({from: this.state.account});
     await this.state.contractNft.methods.isForSale(this.state.sellingTokenId).call().then((r) => {
-      console.log(r);
+      console.log("Token is for sale: ",r);
       this.setState({ isForSale: r });
     })
   }
@@ -154,26 +183,30 @@ class App extends Component {
   displayToken = async (event) => {
     event.preventDefault();
     const web3 = window.web3;
+
+    const account = await window.ethereum.selectedAddress;
+    this.setState({account})
+
     const tokenId = this.state.tokenId;
 
     await this.state.contractNft.methods.getIpfsFromId(tokenId).call().then((r) => {
-      console.log(r);
+      console.log("IPFS hash: ",r);
       this.setState({ imgHash: r });
     })
 
     await this.state.contractNft.methods.getAddressFromId(tokenId).call().then((r) => {
-      console.log(r);
+      console.log("Owner of token: ",r);
       this.setState({ owner: r });
     })
 
     await this.state.contractNft.methods.isForSale(tokenId).call().then((r) => {
-      console.log(r);
+      console.log("Token is for sale: ",r);
       const isForSale = r.toString()
       this.setState({ isForSale });
     })
 
     await this.state.contractNft.methods.getPrice(tokenId).call().then((r) => {
-      console.log(r);
+      console.log("Token price: ",r);
       const sellingTokenPrice = web3.utils.fromWei(r.toString(), 'ether')
       this.setState({ sellingTokenPrice });
     })
@@ -183,15 +216,19 @@ class App extends Component {
 
   buyToken = async (event) => {
     event.preventDefault();
+
+    const account = await window.ethereum.selectedAddress;
+    this.setState({account})
+
     const tokenId = this.state.buyingTokenId;
     const web3 = window.web3;
     await this.state.contractNft.methods.getPrice(tokenId).call().then((r) => {
-      console.log(r);
+      console.log("Token price: ",r);
       const sellingTokenPrice = web3.utils.fromWei(r.toString(), 'ether')
       this.setState({ sellingTokenPrice });
     })
-    await this.state.contractNft.methods.buyToken(tokenId).send({from: this.state.account, value: web3.utils.toWei(this.state.sellingTokenPrice), gasPrice: web3.utils.toWei("100", "gwei")}).then((r) => {
-      console.log(r);
+    await this.state.contractNft.methods.buyToken(tokenId).send({from: this.state.account, value: web3.utils.toWei(this.state.sellingTokenPrice), gasPrice: web3.utils.toWei("20", "gwei")}).then((r) => {
+      console.log("Bought token return",r);
     })
   }
 
@@ -201,7 +238,7 @@ class App extends Component {
         <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
           <a
             className="navbar-brand col-sm-3 col-md-2 mr-0"
-            href="http://www.dappuniversity.com/bootcamp"
+            href="https://pandora.finance/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -228,15 +265,15 @@ class App extends Component {
                   <p>Token is for sale: {this.state.isForSale}</p>
                   <p>Price of Token: {this.state.sellingTokenPrice} eth</p>
                 </div>
-                <h2>Display Token</h2>
-                <form onSubmit = {this.displayToken}>
-                  <input placeholder = "Token Id" onChange = {this.captureTokenId}></input>
-                  <input type = "submit" />
-                </form>
-                <br></br>
                 <h2>Upload file to convert to NFT</h2>
                 <form onSubmit = {this.onSubmit}>
                   <input type = "file" onChange = {this.captureFile}/>
+                  <input type = "submit" />
+                </form>
+                <br></br>
+                <h2>Display Token</h2>
+                <form onSubmit = {this.displayToken}>
+                  <input placeholder = "Token Id" onChange = {this.captureTokenId}></input>
                   <input type = "submit" />
                 </form>
                 <br></br>
