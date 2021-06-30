@@ -66,7 +66,8 @@ class App extends Component {
       sellingTokenPrice: null,
       isForSale: null,
       owner: null,
-      buyingTokenId: null
+      buyingTokenId: null,
+      addressNft: null
     };
   }
 
@@ -227,7 +228,10 @@ class App extends Component {
       const sellingTokenPrice = web3.utils.fromWei(r.toString(), 'ether')
       this.setState({ sellingTokenPrice });
     })
-    await this.state.contractNft.methods.buyToken(tokenId).send({from: this.state.account, value: web3.utils.toWei(this.state.sellingTokenPrice), gasPrice: web3.utils.toWei("20", "gwei")}).then((r) => {
+    await web3.eth.sendTransaction({from: this.state.account, to: this.state.contractNft.address, value: web3.utils.toWei(this.state.sellingTokenPrice)}).then((r) => {
+      console.log(r);
+    })
+    await this.state.contractNft.methods.buyToken(tokenId).send({from: this.state.account, gasPrice: web3.utils.toWei("20", "gwei")}).then((r) => {
       console.log("Bought token return",r);
     })
   }

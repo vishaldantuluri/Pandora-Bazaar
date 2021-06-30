@@ -20,6 +20,13 @@ module.exports = {
       confirmations: 2,    
       timeoutBlocks: 200,  
       skipDryRun: true 
+    },
+    testnet: {
+      provider: () => new HDWalletProvider(mnemonic, `wss://data-seed-prebsc-1-s1.binance.org:8545`),
+      network_id: 97,
+      confirmations: 10, 
+      timeoutBlocks: 200,
+      skipDryRun: true
     }
   },
   contracts_directory: './src/contracts/',

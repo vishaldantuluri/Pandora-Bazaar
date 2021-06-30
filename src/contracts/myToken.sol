@@ -16,10 +16,15 @@ contract myToken is ERC721, Ownable {
     mapping(string => uint) ipfsToToken;
     mapping(uint => bool) forSale;
     mapping(uint => uint) priceOfToken;
+    mapping(address => uint) addressWallet;
     uint tokenId;
 
     constructor() ERC721("Item", "ITM") {
         tokenId = 0;
+    }
+
+    receive() external payable {
+        addressWallet[msg.sender] = addressWallet[msg.sender].add(msg.value);
     }
 
     function createToken(string memory _ipfs) public {
@@ -43,10 +48,12 @@ contract myToken is ERC721, Ownable {
 
     function buyToken(uint _tokenId) payable public {
         require(forSale[_tokenId] == true, "This Token is not for sale");
-        address _owner = (tokenToAddress[_tokenId]);
+        address payable _owner = payable(tokenToAddress[_tokenId]);
         address payable _to = payable(msg.sender);
         require(_owner != _to);
+        require(addressWallet[_to] >= priceOfToken[_tokenId], "Full amount has to be paid");
         _approve(_to, _tokenId);
+        _owner.transfer(priceOfToken[_tokenId]);
         sendToken(_owner, _to, _tokenId);
         forSale[_tokenId] = false;
         priceOfToken[_tokenId] = 0;
@@ -81,5 +88,9 @@ contract myToken is ERC721, Ownable {
 
     function getAddressFromId(uint _tokenId) public view returns(address) {
         return tokenToAddress[_tokenId];
+    }
+
+    function getBalance() public view returns(uint) {
+        return address(this).balance;
     }
 }
