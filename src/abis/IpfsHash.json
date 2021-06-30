@@ -1,0 +1,585 @@
+{
+  "contractName": "IpfsHash",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_hash",
+          "type": "string"
+        }
+      ],
+      "name": "setHash",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getHash",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getHash\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_hash\",\"type\":\"string\"}],\"name\":\"setHash\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/C/Users/lenovo/Code/pandora-bazaar/Pandora-Bazaar/src/contracts/ipfsHash.sol\":\"IpfsHash\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/lenovo/Code/pandora-bazaar/Pandora-Bazaar/src/contracts/ipfsHash.sol\":{\"keccak256\":\"0x4eae8232a1d6ecfeacc02218fcd7f42903dd841350748c6edde1c35862a6a90a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://baf38270c65f6b12297db261a799f4215c168d61ad6c549f0b0952816695c1ea\",\"dweb:/ipfs/QmVXfJHUBb6FLuNWLDKXQvu25UpeRnQy3Mm15HNcukfSwr\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5061045e806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80631ed83fd41461003b578063d13319c414610057575b600080fd5b6100556004803603810190610050919061022c565b610075565b005b61005f61008f565b60405161006c91906102a6565b60405180910390f35b806000908051906020019061008b929190610121565b5050565b60606000805461009e90610387565b80601f01602080910402602001604051908101604052809291908181526020018280546100ca90610387565b80156101175780601f106100ec57610100808354040283529160200191610117565b820191906000526020600020905b8154815290600101906020018083116100fa57829003601f168201915b5050505050905090565b82805461012d90610387565b90600052602060002090601f01602090048101928261014f5760008555610196565b82601f1061016857805160ff1916838001178555610196565b82800160010185558215610196579182015b8281111561019557825182559160200191906001019061017a565b5b5090506101a391906101a7565b5090565b5b808211156101c05760008160009055506001016101a8565b5090565b60006101d76101d2846102f9565b6102c8565b9050828152602081018484840111156101ef57600080fd5b6101fa848285610345565b509392505050565b600082601f83011261021357600080fd5b81356102238482602086016101c4565b91505092915050565b60006020828403121561023e57600080fd5b600082013567ffffffffffffffff81111561025857600080fd5b61026484828501610202565b91505092915050565b600061027882610329565b6102828185610334565b9350610292818560208601610354565b61029b81610417565b840191505092915050565b600060208201905081810360008301526102c0818461026d565b905092915050565b6000604051905081810181811067ffffffffffffffff821117156102ef576102ee6103e8565b5b8060405250919050565b600067ffffffffffffffff821115610314576103136103e8565b5b601f19601f8301169050602081019050919050565b600081519050919050565b600082825260208201905092915050565b82818337600083830152505050565b60005b83811015610372578082015181840152602081019050610357565b83811115610381576000848401525b50505050565b6000600282049050600182168061039f57607f821691505b602082108114156103b3576103b26103b9565b5b50919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602260045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b6000601f19601f830116905091905056fea26469706673582212206cc617c67b2fb136ed0b9d5af2827e9ddeb7f4cb4c0d5e185aa80416f9e9eb4564736f6c63430008000033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c80631ed83fd41461003b578063d13319c414610057575b600080fd5b6100556004803603810190610050919061022c565b610075565b005b61005f61008f565b60405161006c91906102a6565b60405180910390f35b806000908051906020019061008b929190610121565b5050565b60606000805461009e90610387565b80601f01602080910402602001604051908101604052809291908181526020018280546100ca90610387565b80156101175780601f106100ec57610100808354040283529160200191610117565b820191906000526020600020905b8154815290600101906020018083116100fa57829003601f168201915b5050505050905090565b82805461012d90610387565b90600052602060002090601f01602090048101928261014f5760008555610196565b82601f1061016857805160ff1916838001178555610196565b82800160010185558215610196579182015b8281111561019557825182559160200191906001019061017a565b5b5090506101a391906101a7565b5090565b5b808211156101c05760008160009055506001016101a8565b5090565b60006101d76101d2846102f9565b6102c8565b9050828152602081018484840111156101ef57600080fd5b6101fa848285610345565b509392505050565b600082601f83011261021357600080fd5b81356102238482602086016101c4565b91505092915050565b60006020828403121561023e57600080fd5b600082013567ffffffffffffffff81111561025857600080fd5b61026484828501610202565b91505092915050565b600061027882610329565b6102828185610334565b9350610292818560208601610354565b61029b81610417565b840191505092915050565b600060208201905081810360008301526102c0818461026d565b905092915050565b6000604051905081810181811067ffffffffffffffff821117156102ef576102ee6103e8565b5b8060405250919050565b600067ffffffffffffffff821115610314576103136103e8565b5b601f19601f8301169050602081019050919050565b600081519050919050565b600082825260208201905092915050565b82818337600083830152505050565b60005b83811015610372578082015181840152602081019050610357565b83811115610381576000848401525b50505050565b6000600282049050600182168061039f57607f821691505b602082108114156103b3576103b26103b9565b5b50919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602260045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b6000601f19601f830116905091905056fea26469706673582212206cc617c67b2fb136ed0b9d5af2827e9ddeb7f4cb4c0d5e185aa80416f9e9eb4564736f6c63430008000033",
+  "immutableReferences": {},
+  "sourceMap": "61:226:24:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "61:226:24:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;109:80;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;197:87;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;109:80;176:5;165:8;:16;;;;;;;;;;;;:::i;:::-;;109:80;:::o;197:87::-;236:13;268:8;261:15;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;197:87;:::o;-1:-1:-1:-;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;:::o;7:344:26:-;;110:65;125:49;167:6;125:49;:::i;:::-;110:65;:::i;:::-;101:74;;198:6;191:5;184:21;236:4;229:5;225:16;274:3;265:6;260:3;256:16;253:25;250:2;;;291:1;288;281:12;250:2;304:41;338:6;333:3;328;304:41;:::i;:::-;91:260;;;;;;:::o;371:273::-;;476:3;469:4;461:6;457:17;453:27;443:2;;494:1;491;484:12;443:2;534:6;521:20;559:79;634:3;626:6;619:4;611:6;607:17;559:79;:::i;:::-;550:88;;433:211;;;;;:::o;650:375::-;;768:2;756:9;747:7;743:23;739:32;736:2;;;784:1;781;774:12;736:2;855:1;844:9;840:17;827:31;885:18;877:6;874:30;871:2;;;917:1;914;907:12;871:2;945:63;1000:7;991:6;980:9;976:22;945:63;:::i;:::-;935:73;;798:220;726:299;;;;:::o;1031:364::-;;1147:39;1180:5;1147:39;:::i;:::-;1202:71;1266:6;1261:3;1202:71;:::i;:::-;1195:78;;1282:52;1327:6;1322:3;1315:4;1308:5;1304:16;1282:52;:::i;:::-;1359:29;1381:6;1359:29;:::i;:::-;1354:3;1350:39;1343:46;;1123:272;;;;;:::o;1401:313::-;;1552:2;1541:9;1537:18;1529:26;;1601:9;1595:4;1591:20;1587:1;1576:9;1572:17;1565:47;1629:78;1702:4;1693:6;1629:78;:::i;:::-;1621:86;;1519:195;;;;:::o;1720:283::-;;1786:2;1780:9;1770:19;;1828:4;1820:6;1816:17;1935:6;1923:10;1920:22;1899:18;1887:10;1884:34;1881:62;1878:2;;;1946:18;;:::i;:::-;1878:2;1986:10;1982:2;1975:22;1760:243;;;;:::o;2009:332::-;;2161:18;2153:6;2150:30;2147:2;;;2183:18;;:::i;:::-;2147:2;2268:4;2264:9;2257:4;2249:6;2245:17;2241:33;2233:41;;2329:4;2323;2319:15;2311:23;;2076:265;;;:::o;2347:99::-;;2433:5;2427:12;2417:22;;2406:40;;;:::o;2452:169::-;;2570:6;2565:3;2558:19;2610:4;2605:3;2601:14;2586:29;;2548:73;;;;:::o;2627:154::-;2711:6;2706:3;2701;2688:30;2773:1;2764:6;2759:3;2755:16;2748:27;2678:103;;;:::o;2787:307::-;2855:1;2865:113;2879:6;2876:1;2873:13;2865:113;;;2964:1;2959:3;2955:11;2949:18;2945:1;2940:3;2936:11;2929:39;2901:2;2898:1;2894:10;2889:15;;2865:113;;;2996:6;2993:1;2990:13;2987:2;;;3076:1;3067:6;3062:3;3058:16;3051:27;2987:2;2836:258;;;;:::o;3100:320::-;;3181:1;3175:4;3171:12;3161:22;;3228:1;3222:4;3218:12;3249:18;3239:2;;3305:4;3297:6;3293:17;3283:27;;3239:2;3367;3359:6;3356:14;3336:18;3333:38;3330:2;;;3386:18;;:::i;:::-;3330:2;3151:269;;;;:::o;3426:180::-;3474:77;3471:1;3464:88;3571:4;3568:1;3561:15;3595:4;3592:1;3585:15;3612:180;3660:77;3657:1;3650:88;3757:4;3754:1;3747:15;3781:4;3778:1;3771:15;3798:102;;3890:2;3886:7;3881:2;3874:5;3870:14;3866:28;3856:38;;3846:54;;;:::o",
+  "source": "// SPDX-License-Identifier: MIT\r\n\r\npragma solidity 0.8.0;\r\n\r\ncontract IpfsHash{\r\n    string ipfsHash;\r\n\r\n    function setHash(string memory _hash) public {\r\n        ipfsHash = _hash;\r\n    }\r\n\r\n    function getHash() public view returns(string memory){\r\n        return ipfsHash;\r\n    }\r\n}",
+  "sourcePath": "C:/Users/lenovo/Code/pandora-bazaar/Pandora-Bazaar/src/contracts/ipfsHash.sol",
+  "ast": {
+    "absolutePath": "/C/Users/lenovo/Code/pandora-bazaar/Pandora-Bazaar/src/contracts/ipfsHash.sol",
+    "exportedSymbols": {
+      "IpfsHash": [
+        4312
+      ]
+    },
+    "id": 4313,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4291,
+        "literals": [
+          "solidity",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "35:22:24"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 4312,
+        "linearizedBaseContracts": [
+          4312
+        ],
+        "name": "IpfsHash",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 4293,
+            "mutability": "mutable",
+            "name": "ipfsHash",
+            "nodeType": "VariableDeclaration",
+            "scope": 4312,
+            "src": "85:15:24",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 4292,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "85:6:24",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 4302,
+              "nodeType": "Block",
+              "src": "154:35:24",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 4300,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 4298,
+                      "name": "ipfsHash",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4293,
+                      "src": "165:8:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 4299,
+                      "name": "_hash",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4295,
+                      "src": "176:5:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory_ptr",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "src": "165:16:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 4301,
+                  "nodeType": "ExpressionStatement",
+                  "src": "165:16:24"
+                }
+              ]
+            },
+            "functionSelector": "1ed83fd4",
+            "id": 4303,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4296,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4295,
+                  "mutability": "mutable",
+                  "name": "_hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4303,
+                  "src": "126:19:24",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 4294,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "126:6:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "125:21:24"
+            },
+            "returnParameters": {
+              "id": 4297,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "154:0:24"
+            },
+            "scope": 4312,
+            "src": "109:80:24",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 4310,
+              "nodeType": "Block",
+              "src": "250:34:24",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 4308,
+                    "name": "ipfsHash",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 4293,
+                    "src": "268:8:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 4307,
+                  "id": 4309,
+                  "nodeType": "Return",
+                  "src": "261:15:24"
+                }
+              ]
+            },
+            "functionSelector": "d13319c4",
+            "id": 4311,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4304,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "213:2:24"
+            },
+            "returnParameters": {
+              "id": 4307,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4306,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4311,
+                  "src": "236:13:24",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 4305,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "236:6:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "235:15:24"
+            },
+            "scope": 4312,
+            "src": "197:87:24",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 4313,
+        "src": "61:226:24"
+      }
+    ],
+    "src": "35:252:24"
+  },
+  "legacyAST": {
+    "absolutePath": "/C/Users/lenovo/Code/pandora-bazaar/Pandora-Bazaar/src/contracts/ipfsHash.sol",
+    "exportedSymbols": {
+      "IpfsHash": [
+        4312
+      ]
+    },
+    "id": 4313,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4291,
+        "literals": [
+          "solidity",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "35:22:24"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 4312,
+        "linearizedBaseContracts": [
+          4312
+        ],
+        "name": "IpfsHash",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 4293,
+            "mutability": "mutable",
+            "name": "ipfsHash",
+            "nodeType": "VariableDeclaration",
+            "scope": 4312,
+            "src": "85:15:24",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 4292,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "85:6:24",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 4302,
+              "nodeType": "Block",
+              "src": "154:35:24",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 4300,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 4298,
+                      "name": "ipfsHash",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4293,
+                      "src": "165:8:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 4299,
+                      "name": "_hash",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4295,
+                      "src": "176:5:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory_ptr",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "src": "165:16:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 4301,
+                  "nodeType": "ExpressionStatement",
+                  "src": "165:16:24"
+                }
+              ]
+            },
+            "functionSelector": "1ed83fd4",
+            "id": 4303,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4296,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4295,
+                  "mutability": "mutable",
+                  "name": "_hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4303,
+                  "src": "126:19:24",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 4294,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "126:6:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "125:21:24"
+            },
+            "returnParameters": {
+              "id": 4297,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "154:0:24"
+            },
+            "scope": 4312,
+            "src": "109:80:24",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 4310,
+              "nodeType": "Block",
+              "src": "250:34:24",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 4308,
+                    "name": "ipfsHash",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 4293,
+                    "src": "268:8:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 4307,
+                  "id": 4309,
+                  "nodeType": "Return",
+                  "src": "261:15:24"
+                }
+              ]
+            },
+            "functionSelector": "d13319c4",
+            "id": 4311,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4304,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "213:2:24"
+            },
+            "returnParameters": {
+              "id": 4307,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4306,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4311,
+                  "src": "236:13:24",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 4305,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "236:6:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "235:15:24"
+            },
+            "scope": 4312,
+            "src": "197:87:24",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 4313,
+        "src": "61:226:24"
+      }
+    ],
+    "src": "35:252:24"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
+  },
+  "networks": {
+    "3": {
+      "events": {},
+      "links": {},
+      "address": "0xB42371413Af1e9A36c8a28c125BEd45C50e8d256",
+      "transactionHash": "0x079038c9c975f262ee29ac0a94ea6dab82f480f57bd6508a963dbbe680fc30ed"
+    },
+    "4": {
+      "events": {},
+      "links": {},
+      "address": "0xd0D7B08aC8f9C8ae7cc026083D9D15C3C67b1aE6",
+      "transactionHash": "0x92bcd163a456bfd6496f997c5adf9aedba99287d2ad618e11609a870b7fb93a1"
+    },
+    "5": {
+      "events": {},
+      "links": {},
+      "address": "0x4Dcc78dCe0D899c19F917BbC26e2316016521E0f",
+      "transactionHash": "0x5259d02e96c1fc71f2312f1853ccfb439732780e90a288f6b27ab9c6801424af"
+    },
+    "42": {
+      "events": {},
+      "links": {},
+      "address": "0x2c63F7A23c30223608c5Db8a322F76578129543D",
+      "transactionHash": "0x3e31aeee0b9b9170dc1721089caeafca2419df07f599a534d2c5f7879f05f75f"
+    },
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x3EeaB429Bdc542e8BB46D5950D7504D0F59EAA2F",
+      "transactionHash": "0x0e2a8af4f81a06c122177983b1757167b08b9e693ee815eafbc041384946cfd9"
+    }
+  },
+  "schemaVersion": "3.2.3",
+  "updatedAt": "2021-06-29T10:29:22.555Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
